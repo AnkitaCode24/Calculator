@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <title>Calculator</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      *{
+        margin:0; padding:0; box-sizing: border-box;
+      }
+      .calc-body{
+        margin-top:30px;
+        height:380px;
+        width:350px;
+        box-shadow:0 0 10px 10x grey;
+        align-items: center;
+        background-color:gray;
+        border-radius:5px;
+        
+      }
+      #display-ans{
+        height:70px;
+        width:inherit;
+        border:none;
+        outline: none;
+        background-color:#303030;
+        color:whitesmoke;
+        font-size:24px;
+        padding:0px 10px;
+        text-align: right;
+        
+      }
+      .keyboard{
+        width:100%;
+       
+      }
+      .layer1{
+        display: flex;
+        justify-content: center;
+        width:100%;
+        height:62px;
+        margin:0px;
+      }
+      input{
+        flex:1;
+        width:100%;
+      }
+    </style>
+    <script>
+       function dig(val) {
+        document.getElementById("display-ans").value += val;
+      }
+
+      function solve() {
+        let x= document.getElementById("display-ans").value;
+        let y=eval(x);
+        document.getElementById("display-ans").value = y;
+      }
+      function cls(){
+        document.getElementById("display-ans").value="";
+      }
+      function remove(){
+
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container text-center">
+     <div class="calc-body">
+         <input type="text" name="answer" id="display-ans">
+         <div class="keyboard text-center">
+           <div class=" row layer1">
+            <input
+              type="button"
+              value="clear"
+              aria-colspan="3"
+              onclick="cls()"
+            />
+            <input type="button" value="C" onclick="remove()"/>
+            <input type="button" value="/" onclick="dig('/')"/>
+          </div>
+
+          <div class="row layer1">
+            <input type="button" value="7" onclick="dig('7') " />
+            <input type="button" value="8" onclick="dig('8')" />
+            <input type="button" value="9" onclick="dig(9)" />
+            <input type="button" value="*" onclick="dig('*')" />
+          </div>
+
+          <div class="row layer1">
+            <input type="button" value="4" onclick="dig(4)" />
+            <input type="button" value="5" onclick="dig(5)" />
+            <input type="button" value="6" onclick="dig(6)" />
+            <input type="button" value="-" onclick="dig('-')" />
+          </div>
+
+          <div class="row layer1">
+            <input type="button" value="1" onclick="dig(1)" />
+            <input type="button" value="2" onclick="dig(2)" />
+            <input type="button" value="3" onclick="dig(3)" />
+            <input type="button" value="+" onclick="dig('+')" />
+          </div>
+
+          <div class="row layer1">
+            <input type="button" value="0" onclick="dig(0)" />
+            <input type="button" value="%" onclick="dig('%')" />
+            <input type="button" value="=" onclick="solve()" />
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
